@@ -1,0 +1,10 @@
+.list {
+  padding: 0;
+}
+
+.removeButton {
+  pointer-events: none;
+  color: red;
+  margin: 0 5px;
+  /* transform: scale(); */
+}

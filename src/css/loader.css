@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap");
+* {
+  font-family: "Saira Semi Condensed", sans-serif;
+}
+
+.loader {
+  display: block;
+  margin: auto;
+  max-width: 2rem;
+  max-height: 2rem;
+}
+
+.copyButton:hover {
+  cursor: pointer;
+  color: rgb(195, 195, 195);
+  transform: scale(1.2);
+}
+
+.copyButton {
+  color: rgb(229, 229, 229);
+}
+
+.link {
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  color: rgb(229, 229, 229);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgb(25, 197, 255);
+}
