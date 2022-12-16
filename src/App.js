@@ -21,8 +21,8 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [contestLink, setContestLink] = useState();
 
-  const createContestUrl = "https://mashupcreator.onrender.com/create";
-  const getContestUrl = "https://mashupcreator.onrender.com/contests";
+  const createContestUrl = "https://mashupcreator-api.onrender.com/create";
+  const getContestUrl = "https://mashupcreator-api.onrender.com/contests";
   const waitTime = 10000;
 
   useEffect(() => {
