@@ -5,6 +5,11 @@
   /* line-height: 26px; */
   /* text-indent: 30px; */
   margin: 0;
+  /* border: 2px red solid; */
+  text-align: center;
+  box-shadow: rgba(55, 245, 255, 0.3) 0px 19px 38px,
+    rgba(55, 245, 255, 0.22) 0px 15px 12px;
+  border-radius: 2%;
 }
 
 li {

@@ -1,7 +1,33 @@
-.heading {
+/* .heading {
   text-align: center;
   padding: 3rem 2rem;
   font-size: 7rem;
   color: #c9d0d4;
   font-family: "Helvetica Neue", sans-serif;
+} */
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:700,900");
+
+/* Aesthetics */
+/* .top-section {
+  background: linear-gradient(135deg, #f4583a 0%, #cd1e38 100%);
+} */
+.bottom-section {
+  background: #d4fef2;
+}
+.section h1 {
+  font-size: 100px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.content-theme-dark h1 {
+  color: #dedede;
+  text-shadow: 0 8px 12px rgba(255, 255, 255, 0.5);
+}
+
+.heading {
+  border-radius: 2px;
 }

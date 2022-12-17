@@ -21,23 +21,28 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [contestLink, setContestLink] = useState();
 
-  const createContestUrl = "https://mashupcreator.onrender.com/create";
-  const getContestUrl = "https://mashupcreator.onrender.com/contests";
+  const createContestUrl = "https://mashupcreator-api.onrender.com/create";
+  const getContestUrl = "https://mashupcreator-api.onrender.com/contests";
+
   const waitTime = 10000;
 
   useEffect(() => {
     if (contestNumber === -1) return;
 
     const interval = setInterval(async () => {
-      await axios.get(getContestUrl).then((res) => {
-        for (const contest of res.data) {
-          if (contestNumber === contest.contestNumber) {
-            setContestLink(contest.contestLink);
-            setSubmitted(false);
-            clearInterval(interval);
+      try {
+        await axios.get(getContestUrl).then((res) => {
+          for (const contest of res.data) {
+            if (contestNumber === contest.contestNumber) {
+              setContestLink(contest.contestLink);
+              setSubmitted(false);
+              clearInterval(interval);
+            }
           }
-        }
-      });
+        });
+      } catch (e) {
+        console.log(e);
+      }
     }, waitTime);
 
     return () => {
@@ -50,15 +55,26 @@ function App() {
     if (users.length === 0 || ratings.length === 0) return;
     setSubmitted(true);
     setContestLink("loading");
-    await axios
-      .post(createContestUrl, {
-        duration: duration,
-        users: users,
-        ratings: ratings,
-      })
-      .then((res) => {
-        setContestNumber(res.data);
-      });
+    try {
+      await axios
+        .post(createContestUrl, {
+          duration: duration,
+          users: users,
+          ratings: ratings,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data.contestNumber !== undefined) {
+            setContestNumber(res.data.contestNumber);
+          } else {
+            setContestLink(res.data.substring(9));
+            setSubmitted(false);
+          }
+        });
+    } catch (e) {
+      setContestLink(e.message + ". Please try again.");
+      setSubmitted(false);
+    }
   };
 
   return (
@@ -78,10 +94,10 @@ function App() {
 
             <div className="text-center" style={{ padding: "1rem" }}>
               <button
-                type="submit"
+                type="button"
                 disabled={submitted}
-                className="btn btn-outline-light"
-                style={{ marginLeft: "-30px" }}
+                className="button"
+                onClick={handleSubmit}
               >
                 CREATE
               </button>

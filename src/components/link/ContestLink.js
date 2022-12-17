@@ -9,22 +9,31 @@ function ContestLink({ link }) {
   const [copied, setCopied] = useState(false);
 
   if (link === undefined) return;
-  if (link === "loading") return <Spinner />;
-  return (
-    <>
-      <a href={link} className="link" target="_blank">
-        {link}
-      </a>
-      <CopyToClipboard
-        text={link}
-        onCopy={() => {
-          setCopied(true);
-        }}
-      >
-        <ContentCopyIcon className="copyButton" />
-      </CopyToClipboard>
-    </>
-  );
+  if (link === "loading")
+    return (
+      <>
+        <Spinner />
+        <div>Please wait, this takes around 1-2 minutes...</div>
+      </>
+    );
+  if (link.startsWith("https://")) {
+    return (
+      <>
+        <a href={link} className="link" target="_blank">
+          {link}
+        </a>
+        <CopyToClipboard
+          text={link}
+          onCopy={() => {
+            setCopied(true);
+          }}
+        >
+          <ContentCopyIcon className="copyButton" />
+        </CopyToClipboard>
+      </>
+    );
+  }
+  return <>{link}</>;
 }
 
 export default ContestLink;

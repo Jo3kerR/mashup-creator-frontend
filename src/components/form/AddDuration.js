@@ -8,7 +8,7 @@ function AddDuration({ duration, setDuration }) {
   };
   return (
     <div className="formDiv">
-      <label>Enter duration (in mins): </label>
+      <label>Enter duration (in mins)</label>
       <input type="text" value={duration} onChange={handleDurationChange} />
     </div>
   );

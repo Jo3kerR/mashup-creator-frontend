@@ -14,10 +14,18 @@ function AddHandle({ users, setUsers }) {
       setUser("");
     }
   };
+  const enterHandler = (e) => {
+    if (e.key === "Enter") addUser();
+  };
   return (
     <div className="formDiv">
-      <label>Add Codeforces handles: </label>
-      <input type="text" value={user} onChange={handleUserChange} />
+      <label>Add Codeforces handles</label>
+      <input
+        type="text"
+        value={user}
+        onChange={handleUserChange}
+        onKeyDown={enterHandler}
+      />
       <AddCircleOutlineIcon onClick={addUser} className="addButton" />
     </div>
   );

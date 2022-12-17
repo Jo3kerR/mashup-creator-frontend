@@ -13,10 +13,17 @@ function AddRating({ ratings, setRatings }) {
       setRatings([...ratings, parseInt(rating)]);
     }
   };
+  const enterHandler = (e) => {
+    if (e.key === "Enter") addRating();
+  };
   return (
     <div className="formDiv">
-      <label>Add problem ratings (max 26): </label>
-      <select value={rating} onChange={handleRatingChange}>
+      <label>Add problem ratings (max 26)</label>
+      <select
+        value={rating}
+        onChange={handleRatingChange}
+        onKeyDown={enterHandler}
+      >
         <option value="800">800</option>
         <option value="900">900</option>
         <option value="1000">1000</option>
