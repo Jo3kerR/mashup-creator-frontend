@@ -23,7 +23,6 @@ function App() {
 
   const createContestUrl = "https://mashupcreator-api.onrender.com/create";
   const getContestUrl = "https://mashupcreator-api.onrender.com/contests";
-
   const waitTime = 10000;
 
   useEffect(() => {
