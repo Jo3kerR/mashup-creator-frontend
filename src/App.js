@@ -62,7 +62,6 @@ function App() {
           ratings: ratings,
         })
         .then((res) => {
-          console.log(res);
           if (res.data.contestNumber !== undefined) {
             setContestNumber(res.data.contestNumber);
           } else {
