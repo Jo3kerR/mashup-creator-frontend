@@ -1,5 +1,6 @@
 .list {
   padding: 0;
+  transition: 0.2s ease-in-out !important;
 }
 
 .removeButton {
@@ -11,8 +12,8 @@
 }
 
 .list:hover {
-  transform: scale(1.1);
   cursor: pointer;
+  color: rgb(255, 83, 83);
 }
 
 ul {

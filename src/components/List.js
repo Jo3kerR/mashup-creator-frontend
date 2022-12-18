@@ -21,14 +21,11 @@ function List({ list, handler }) {
       <ul style={{ padding: "0" }}>
         {list.map((user, index) => {
           return (
-            <li
-              key={index}
-              onClick={removeElement}
-              listid={index}
-              className="list"
-            >
-              <RemoveCircleOutlineIcon className="removeButton" />
-              {user}
+            <li key={index}>
+              <span className="list" listid={index} onClick={removeElement}>
+                <RemoveCircleOutlineIcon className="removeButton" />
+                {user}
+              </span>
             </li>
           );
         })}
