@@ -6,7 +6,7 @@ import "../css/handlesAndRatings.css";
 function Ratings({ list, handler }) {
   return (
     <div className="col-3 text">
-      Ratings
+      <h2 style={{ pointerEvents: "none" }}>Ratings</h2>
       <List list={list} handler={handler} />
     </div>
   );

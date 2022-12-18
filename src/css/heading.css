@@ -30,4 +30,5 @@
 
 .heading {
   border-radius: 2px;
+  pointer-events: none;
 }
